@@ -1,0 +1,7 @@
+node_modules/*
+**/bundle.js
+**/*.min.js
+dist/*
+**/thirdparty/*
+**/vendor/*
+**/vendors/*

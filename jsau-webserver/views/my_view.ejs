@@ -1,0 +1,22 @@
+<style type='text/css'>
+  .numbers{
+    color: green;
+    background-color: antiquewhite;
+    height: 100px;
+    text-align: center;
+    padding-top: 15%;
+  }
+</style>
+<script>
+  function changeColor(element){
+    element.style.backgroundColor = 'blue'
+  }
+</script>
+
+<body>
+  <div class='numbers' onclick="changeColor(this)">
+    <% even_numbers.forEach(function(number, index){ %>
+      <%= number %>
+    <% }) %>
+  </div>
+</body>

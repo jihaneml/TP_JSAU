@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>jsau-desktop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/ui.css"/>
+    <script src="../js/index.js"></script>
+    <script src="../js/my_shared_code.js"></script>
+  </head>
+  <body>
+    <h1>jsau-desktop</h1>
+    <div>
+      <input id="path"/>
+      <button onclick="directoryTree(document.getElementById('path').value,1s)">Arborescence</button>
+      <dir id="directory3"></dir>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div>
+      <button onclick = "getMethod()"> GET method </button>
+      <p id ="RestAPIResponse"/>
+    </div>
+      <button onclick = "postMethod()"> POST method </button>
+      <p/>resutat en console ApiServer</p>
+    </div>
+    <div>
+      <button onclick = "putMethod()"> PUT method </button>
+      <p/>resutat en console ApiServer</p>
+    </div>
+    <div>
+      <button onclick = "deleteMethod()"> DELETE method </button>
+      <p/>resutat en console ApiServer</p>
+    </div>
+    <!-- <div>
+    <button onclick = "writeContent()">my shared code test</button>
+    </dir> -->
+  </body>
+</html>

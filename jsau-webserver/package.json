@@ -1,0 +1,28 @@
+{
+  "name": "serveur",
+  "version": "0.0.1",
+  "description": "premiere cours javascript",
+  "scripts": {
+    "start": "node index.js",
+    "start:watch": "nodemon",
+    "build": "npm run build:js",
+    "build:js": "browserify www/js/main.js > src/resource/js/bundle.js",
+    "clean": "rm -rf src/resource/js/bundle.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "author": "Jihane Mallouli",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.5",
+    "morgan": "1.9.0",
+    "nunjucks": "3.0.1"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "eslint": "4.12.0",
+    "nodemon": "1.12.1",
+    "uglify-js": "^3.1.3"
+  }
+}
