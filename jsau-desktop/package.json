@@ -19,7 +19,7 @@
     "bluebird": "3.4.6",
     "body-parser": "1.18.2",
     "directory-tree": "2.0.0",
-    "electron": "1.7.8",
+    "electron": "1.7.9",
     "fs": "0.0.1-security",
     "minimist": "1.2.0",
     "tracer": "0.8.7"

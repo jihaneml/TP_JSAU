@@ -10,29 +10,25 @@
   </head>
   <body>
     <h1>jsau-desktop</h1>
-    <div>
+    <div style="text-align: center; background-color: aliceblue;">
       <input id="path"/>
-      <button onclick="directoryTree(document.getElementById('path').value,1s)">Arborescence</button>
-      <dir id="directory3"></dir>
+      <button onclick="getArborescence(this)">Submit</button>
+      <dir id="arborescence"></dir>
     </div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
     <div>
       <button onclick = "getMethod()"> GET method </button>
-      <p id ="RestAPIResponse"/>
+      <p id ="RestAPIResponse_get"/>
     </div>
       <button onclick = "postMethod()"> POST method </button>
-      <p/>resutat en console ApiServer</p>
+      <p id ="RestAPIResponse_post"/>
     </div>
     <div>
       <button onclick = "putMethod()"> PUT method </button>
-      <p/>resutat en console ApiServer</p>
+      <p id ="RestAPIResponse_put"/>
     </div>
     <div>
       <button onclick = "deleteMethod()"> DELETE method </button>
-      <p/>resutat en console ApiServer</p>
+      <p id ="RestAPIResponse_delete"/>
     </div>
     <!-- <div>
     <button onclick = "writeContent()">my shared code test</button>

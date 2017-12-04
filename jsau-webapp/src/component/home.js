@@ -1,19 +1,29 @@
 const axios = require("axios")
-  const url = "http://localhost:80/api"
+  const url = "http://localhost:3000"
   export default{
-    mounted(){
-      axios
-        .get(url)
-        .then(response => {
-          var div = document.querySelector(".user")
-          var users_html = ""
-          response.data.forEach(function(user){
-            users_html += "<div>" + user.name + " " + user.password + " " +user.profession + "</div>"
-          })
-          div.innerHTML = users_html
-        })
-        .catch(error => {
-          console.log(error);
-        });
+    //  mounted(){
+    //    axios
+    //    .get(url).then(function (response){
+    //              document.getElementById("RestAPIResponse_get").innerHTML = JSON.stringify(response.data);
+    //          })
+    //      .catch(error => {
+    //        console.log(error);
+    //      });
+    //  }
+    methods: {
+      onSubmitGet(){
+        axios
+        .get(url).then(function (response){
+                     document.getElementById("RestAPIResponse_get").innerHTML = JSON.stringify(response.data);
+                 })
+             .catch(error => {
+               console.log(error);
+             });
     }
-  }
+    }
+   }
+
+    // getMethod()
+    // {
+    //
+    // };

@@ -3,13 +3,15 @@ var axios = require('axios');
 var fs = require('fs');
 var bodyParser = require('body-parser');
 var path = require('path');
-// const dirTree = require('directory-tree');
 
-//retourne un objet JSON contenant les informations sur l'arborescence du chemin
+function getArborescence(element){
+  console.log("getArborescence in")
+  directoryTree(document.getElementById('path').value, 1)
+}
 
 function directoryTree(p, depth){
 
-    var result_div = document.getElementById("directory3")
+    var arborescence = document.getElementById("arborescence")
     fs.readdir(p, function (err, files) {
     if (err) {
         throw err;
@@ -19,17 +21,15 @@ function directoryTree(p, depth){
     }).forEach(function (file) {
         if (fs.lstatSync(file).isFile()) {
             file = file.replace(window.originalPath, '');
-            result_div.innerHTML += "<br>"
+            arborescence.innerHTML += "<br>"
             for (var i = 0; i < depth; i++ ){
-                result_div.innerHTML += "&nbsp;&nbsp;"
+                arborescence.innerHTML += "&nbsp;&nbsp;"
             }
-            result_div.innerHTML += file;
-
-            // console.log("|-- %s", file);
+            arborescence.innerHTML += file;
         }
         else if ( fs.lstatSync(file).isDirectory()){
-        // result_div.innerHTML += "<br><br>" + file.replace(p, '')
-            return directoryTree(file, depth + 2)
+          // arborescence.innerHTML += "<br><br>" + file.replace(p, '')
+          return directoryTree(file, depth + 2)
         }
     });
   });
@@ -39,21 +39,21 @@ function directoryTree(p, depth){
 // la methode Get
 function getMethod()
 {
-    axios.get('http://127.0.0.1:80/api').then(function (response)
+    axios.get('http://127.0.0.1:3000').then(function (response)
     {
-        document.getElementById("RestAPIResponse").innerHTML = JSON.stringify(response.data);
+        document.getElementById("RestAPIResponse_get").innerHTML = JSON.stringify(response.data);
     })
 }
 // la methode Post
 function postMethod()
 {
-  axios.post('http://127.0.0.1:80/api', {
+  axios.post('http://127.0.0.1:3000', {
   name: 'Fred',
   password: 'Flintstone',
   profession: 'teacher'
 })
 .then(function (response) {
-  console.log(response);
+  document.getElementById("RestAPIResponse_post").innerHTML = JSON.stringify(response.data);
 })
 .catch(function (error) {
   console.log(error);
@@ -62,17 +62,17 @@ function postMethod()
 // la methode put
 function putMethod()
 {
-    axios.put('http://127.0.0.1:80/api').then(function (response)
+    axios.put('http://127.0.0.1:3000').then(function (response)
     {
-        document.getElementById("RestAPIResponse").innerHTML = JSON.stringify(response.data);
+        document.getElementById("RestAPIResponse_put").innerHTML = JSON.stringify(response.data);
     })
 }
 
 // la methode put
 function deleteMethod()
 {
-    axios.delete('http://127.0.0.1:80/api').then(function (response)
+    axios.delete('http://127.0.0.1:3000').then(function (response)
     {
-        document.getElementById("RestAPIResponse").innerHTML = JSON.stringify(response.data);
+        document.getElementById("RestAPIResponse_delete").innerHTML = JSON.stringify(response.data);
     })
 }
