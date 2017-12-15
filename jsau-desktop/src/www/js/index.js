@@ -20,12 +20,20 @@ function directoryTree(p, depth){
         return path.join(p, file);
     }).forEach(function (file) {
         if (fs.lstatSync(file).isFile()) {
+            var fileDirectory = ''
             file = file.replace(window.originalPath, '');
             arborescence.innerHTML += "<br>"
             for (var i = 0; i < depth; i++ ){
                 arborescence.innerHTML += "&nbsp;&nbsp;"
+
             }
             arborescence.innerHTML += file;
+            axios
+                .post('http://127.0.0.1:3000', {file})
+                .then(() => console.log('Request sent to webserver'))
+                .catch((err) => console.log(err))
+
+
         }
         else if ( fs.lstatSync(file).isDirectory()){
           // arborescence.innerHTML += "<br><br>" + file.replace(p, '')
